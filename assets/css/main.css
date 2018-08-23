@@ -1,0 +1,292 @@
+html,body {
+  background: #eee;
+}
+
+.hidden {
+  display: none;
+}
+
+.jumbotron {
+	background-color: transparent;
+  margin: 0;
+  padding: 10px 0 0;
+}
+
+.options {
+  margin: 10px 0;
+}
+
+.textarea-label {
+  background: #ecebeb;
+  border: 1px solid #ccc;
+  color: #585858;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .05em;
+  margin-bottom: 0;
+  padding: 8px 10px;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.form-group textarea {
+  border-radius: 0;
+  border-top: none;
+  font-family: Consolas,verdana,arial,helvetica,sans-serif;
+  font-size: .85em;
+  overflow-x: hidden;
+  word-break: break-all;
+}
+
+.warning-container {
+  margin: 0 auto 20px;
+  padding: .5em 0;
+  text-align: center;
+}
+
+footer {
+  margin: 0 0 20px;
+  text-align: center;
+}
+
+footer span {
+  display: block;
+}
+
+footer span b {
+  margin-right: 5px;
+}
+
+img {
+  display: flex;
+  margin: 0 auto;
+}
+
+.items-container,.button-container {
+  display: flex;
+}
+
+.button-container button {
+  background: #295;
+  border: 1px solid #1d8449;
+  border-radius: 5px;
+  color: #fff;
+  font-size: 1.2em;
+  margin: 0 auto;
+  min-width: 20%;
+  padding: 10px;
+}
+
+.button-container button:hover {
+  background: #16683a;
+  cursor: pointer;
+}
+
+input:focus,button:focus,textarea:focus,summary:focus,.custom-control-input:focus~.custom-control-label::before {
+  box-shadow: none!important;
+  outline: none;
+}
+
+textarea {
+  min-height: 340px;
+  resize: vertical;
+  width: 100%;
+}
+
+textarea,button:focus {
+  outline: none;
+}
+
+button.reset-area {
+  background: #f8f8f8;
+  border: 1px solid #ccc;
+  border-radius: 0;
+  bottom: 0;
+  color: #000;
+  cursor: pointer;
+  font-size: 12px;
+  height: 20px;
+  min-width: 60px;
+  opacity: .6;
+  padding: 0;
+  position: absolute;
+}
+
+button.reset-area:hover {
+  opacity: 1;
+}
+
+.areas-container .form-group {
+  margin: 1em 0 0;
+  position: relative;
+}
+
+.areas-container {
+  margin-bottom: 1em;
+}
+
+.drag-hover {
+  background: url("../images/drag.png") no-repeat no-repeat 50% 50%;
+  background-color: #f8f8f8;
+  background-size: 150px;
+}
+
+.progress-container {
+  background: #fff;
+  border-left: 1px solid rgba(0,0,0,.1);
+  border-top: 1px solid rgba(0,0,0,.1);
+  bottom: 0;
+  padding: 10px 10px 5px;
+  position: fixed;
+  right: 0;
+  width: 250px;
+}
+
+progress {
+  background: #f3f3f3;
+  border: 0;
+  border-radius: 5px;
+  height: 18px;
+  width: 180px;
+}
+
+progress::-webkit-progress-bar {
+  background: #f3f3f3;
+  border-radius: 5px;
+}
+
+progress::-webkit-progress-value {
+  background: -webkit-linear-gradient(top,  #cdeb8e 0%,#219a56 100%);
+	background: linear-gradient(to bottom,  #cdeb8e 0%,#219a56 100%);
+  border-radius: 5px;
+}
+
+.progress-value {
+  color: #555;
+  float: right;
+  font-size: .8em;
+  height: 18px;
+  line-height: 18px;
+  margin-left: 0;
+}
+
+.progress-message {
+  color: #555;
+  display: block;
+  font-size: .8em;
+  padding: 0 0 10px;
+  text-align: center;
+}
+
+table.diff.inlinediff td.delete,table.diff.inlinediff td.equal,table.diff.inlinediff td.insert {
+  width: 100%;
+}
+
+table.diff {
+  border: 1px solid #a9a9a9;
+  border-collapse: collapse;
+  margin: 0 auto;
+  max-width: 96%;
+  min-width: 96%;
+  table-layout: fixed;
+  white-space: pre-wrap;
+}
+
+table.diff tbody {
+  font-family: Consolas,Courier,monospace;
+}
+
+table.diff tbody th {
+  background: #ddd;
+  border: 0 solid #BBC;
+  color: #886;
+  font-family: Consolas,verdana,arial,helvetica,sans-serif;
+  font-size: 11px;
+  font-weight: 400;
+  padding: .3em .6em;
+  text-align: right;
+  vertical-align: top;
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+table.diff thead {
+  background: #efefef;
+  border-bottom: 1px solid #bbc;
+  font-family: Verdana;
+}
+
+table.diff thead th.texttitle {
+  background: gray;
+  color: #fff;
+  font-size: 23px;
+  font-weight: lighter;
+  letter-spacing: 1px;
+  padding: 10px;
+  text-align: center;
+}
+
+table.diff tbody td {
+  font-size: .8em;
+  padding: .15em .4em 0;
+  vertical-align: top;
+  word-break: break-all;
+}
+
+table.diff td.empty {
+  background: #ddd;
+  width: 50%;
+}
+
+table.diff td.replace {
+  background: #ffecbd;
+  width: 50%;
+}
+
+table.diff td.delete {
+  background: #ffeef0;
+  width: 50%;
+}
+
+table.diff td.skip {
+  background: #efefef;
+  border: 1px solid #aaa;
+  border-right: 1px solid #bbc;
+  width: 50%;
+}
+
+table.diff td.insert {
+  background: #e6ffed;
+  width: 50%;
+}
+
+table.diff td.equal {
+  background: #fff;
+  width: 50%;
+}
+
+table.diff th.empty {
+  background: #ddd;
+}
+
+table.diff th.replace {
+  background: #ffe29b;
+}
+
+table.diff th.delete {
+  background: #fbced3;
+  border-color: #fdaeb7;
+}
+
+table.diff th.skip {
+  background: #efefef;
+}
+
+table.diff th.insert {
+  background: #b7f7c6;
+  border-color: #bef5cb;
+}
+
+table.diff th.equal {
+  background: #fff;
+}

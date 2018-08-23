@@ -1,0 +1,11 @@
+node_modules
+dist
+build
+examples
+*-lock.json
+*.lock
+.DS_Store
+.bash_profile
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*

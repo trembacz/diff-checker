@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Diff Checker</title>
+    <link rel="stylesheet" href="./assets/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="./assets/css/main.css" />
+  </head>
+  <body>
+    <div class="container-fluid">
+      <!-- header container -->
+      <header class="jumbotron jumbotron-fluid">
+        <div class="container">
+          <h1 class="display-4 text-center">Diff Checker</h1>
+          <p class="lead text-center">Drag files or paste text</p>
+        </div>
+      </header>
+      
+      <main>
+        <!-- options container-->
+        <div class="container options-container hidden">
+          <hr class="my-2">
+          <div class="row">
+            <div class="col-12">
+              <details>
+                <summary>Options</summary>
+                <div class="options">
+                  <div class="custom-control custom-checkbox">
+                    <input class="custom-control-input" name="difference" type="checkbox" id="differenceBtn">
+                    <label class="custom-control-label" for="differenceBtn">Show difference only</label>
+                  </div>
+                  <b>Format:</b> <br/>
+                  <div class="custom-control custom-radio custom-control-inline">
+                    <input class="custom-control-input displayType" checked type="radio" name="inlineRadioOptions" id="iR1" value="0">
+                    <label class="custom-control-label" for="iR1">Side by side</label>
+                  </div>
+                  <div class="custom-control custom-radio custom-control-inline">
+                    <input class="custom-control-input displayType" type="radio" name="inlineRadioOptions" id="iR2" value="1">
+                    <label class="custom-control-label" for="iR2">Inline</label>
+                  </div>
+                </div>
+              </details>
+            </div>
+          </div>
+          <hr class="my-2">
+        </div>          
+        
+        <!-- diff content -->
+        <div class="diff-container hidden"></div>
+
+        <!-- textarea fields -->
+        <div class="row areas-container">
+            <div class="col-6">
+                <div class="left-container">
+                    <div class="form-group">
+                        <label class="form-text textarea-label" for="lt">Original text</label>
+                        <textarea class="form-control" id="lt" rows="3"></textarea>
+                        <button class="reset-area">Reset</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-6">
+                <div class="right-container">
+                    <div class="form-group">
+                        <label class="form-text textarea-label" for="rt">Changed text</label>
+                        <textarea class="form-control" id="rt" rows="3"></textarea>
+                        <button class="reset-area">Reset</button>
+                    </div>
+                  </div>              
+            </div>
+        </div>
+        
+        <!-- warning container-->
+        <div class="warning-container hidden alert alert-danger col-5" role="alert"></div>
+
+        <!-- button container -->
+        <div class="button-container">
+          <button id="diffBtn" type="button" class="btn btn-success">Diff items</button>
+        </div>
+
+        <hr class="my-3">
+
+      </main>
+
+      <div class="progress-container hidden">
+        <span class="progress-message"></span>
+        <div class="progress-dynamic hidden">
+          <progress id="update-progress" max="100" value="0"></progress>
+          <span class="progress-value"></span>
+        </div>
+      </div>
+        
+      <footer>
+        <span><b>Author:</b> Tomasz Rembacz</span>
+        <span><b>Email:</b>mm@mm85.org</span>
+      </footer>
+    </div>
+    <script>
+      require('./renderer.js');
+    </script>
+  </body>
+</html>

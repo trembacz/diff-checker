@@ -1,0 +1,54 @@
+{
+  "name": "diff-checker",
+  "productName": "Diff-Checker",
+  "version": "0.9.0",
+  "description": "Desktop application to compare text differences between two files",
+  "main": "main.js",
+  "repository": "https://github.com/trembacz/diff-checker",
+  "scripts": {
+    "start": "NODE_ENV=development electron .",
+    "build-all": "npm-run-all package-*",
+    "package-mac": "electron-packager . --overwrite --platform=darwin --arch=x64 --prune=true --out=dist --icon=assets/icons/icon.icns",
+    "package-win": "build --win --ia32 --x64",
+    "package-linux" : "electron-packager . --overwrite --platform=linux --arch=x64 --icon=assets/icons/icon.png --prune=true --out=dist",
+    "publish": "build --win --ia32 --x64 -p always"
+  },
+  "author": "Tomasz Rembacz <mm@mm85.org>",
+  "license": "MIT",
+  "build": {
+    "win": {
+      "target": "nsis-web",
+      "icon": "assets/icons/icon.ico"
+    },
+    "linux": {
+      "target": [
+        "AppImage",
+        "deb"
+      ]
+    },
+    "nsisWeb": {
+      "allowToChangeInstallationDirectory": true,
+      "oneClick": false,
+      "createDesktopShortcut": true
+    },
+    "directories": {
+      "buildResources": "assets/icons",
+      "output": "dist"
+    },
+    "files": [
+      "**/*",
+      "!dist/*",
+      "!build/*",
+      "!node_modules/*"
+     ]
+  },
+  "dependencies": {
+    "electron-updater": "~3.1.1"
+  },
+  "devDependencies": {
+    "electron": "^2.0.8",
+    "electron-builder": "20.28.2",
+    "electron-packager": "^12.1.1",
+    "npm-run-all": "^4.1.3"
+  }
+}
