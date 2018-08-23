@@ -64,6 +64,7 @@ const sendStatusToWindow = (text, type, data) => {
 }
 
 // updater events
+autoUpdater.autoInstallOnAppQuit = false;
 autoUpdater.on('update-available', info => { sendStatusToWindow('Update available', 'available', { ...info }); });
 autoUpdater.on('update-not-available', info => { sendStatusToWindow('Update not available.', 'not-available', { ...info }); });
 autoUpdater.on('error', err => { sendStatusToWindow('Error in auto-updater. ' + err, 'error'); });

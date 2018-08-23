@@ -16,6 +16,8 @@
   "author": "Tomasz Rembacz <mm@mm85.org>",
   "license": "MIT",
   "build": {
+    "appId": "com.diff.checker",
+    "compression": "maximum",
     "win": {
       "target": "nsis-web",
       "icon": "assets/icons/icon.ico"
