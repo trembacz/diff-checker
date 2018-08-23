@@ -14,6 +14,10 @@ Now instead of using *online tools* you can use this application directly from y
   
 You can download latest version from [here](https://github.com/trembacz/diff-checker/releases).
 
+| Platform | File |
+| -------- | ---- |
+| Windows | `diff-checker-web-setup-VERSION.exe` |
+
 #### Extra features:
 - drag and drop files or text directly into textarea fields
 - remember window size and position
