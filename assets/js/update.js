@@ -24,7 +24,7 @@ class UpdateManager {
     autoUpdater.on('download-progress', progressObj => { this.sendStatusToWindow('Downloading update...', 'progress', { ...progressObj }); });
     autoUpdater.on('update-downloaded', ({ version }) => {
       this.sendStatusToWindow('Update downloaded', 'downloaded', { version });
-      const buttons = this.darwin ? ['OK'] : ['Restart', 'Later'];
+      const buttons = (this.darwin || this.linux) ? ['OK'] : ['Restart', 'Later'];
       const dialogOpts = {
         type: 'info',
         buttons: buttons,
