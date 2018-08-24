@@ -10,7 +10,7 @@ Now instead of using *online tools* you can use this application directly from y
 
 ### Overview
 
-*Diff Checker* has been written using Electron, it's available for **Windows** (soon **MacOS**, **Linux**).  
+*Diff Checker* has been written using Electron, it's available for **Windows**, **MacOS** and **Linux**.  
   
 You can download latest version from [here](https://github.com/trembacz/diff-checker/releases).
 
