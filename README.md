@@ -16,7 +16,9 @@ You can download latest version from [here](https://github.com/trembacz/diff-che
 
 | Platform | File |
 | -------- | ---- |
-| Windows | `diff-checker-web-setup-VERSION.exe` |
+| Windows | `diff-checker-web-setup-{VERSION}.exe` |
+| Mac | `Diff-Checker-{VERSION}.dmg` |
+| Linux | `diff-checker-{VERSION}-i386.AppImage` <br/> `diff-checker-{VERSION}-x86_64.AppImage` |
 
 #### Extra features:
 - drag and drop files or text directly into textarea fields
@@ -53,8 +55,8 @@ After you click on *Diff items* button, options box will appear. To show avaliab
 ---
   
 ### Todo
-- [ ] mac release
-- [ ] linux release
+- [x] mac release
+- [x] linux release
 - [ ] app hangs on large files
 - [ ] layout improvements, better icon
 - [ ] save last used options
