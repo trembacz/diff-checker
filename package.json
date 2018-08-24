@@ -27,7 +27,7 @@
     },
     "linux": {
       "category": "Productivity",
-      "target": [ "AppImage", "deb" ]
+      "target": [ "AppImage" ]
     },
     "nsisWeb": {
       "allowToChangeInstallationDirectory": true,

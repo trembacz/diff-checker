@@ -17,14 +17,14 @@ class UpdateManager {
   }
 
   setEvents() {
-    autoUpdater.autoInstallOnAppQuit = (this.darwin || this.linux) ? true : false;
+    autoUpdater.autoInstallOnAppQuit = this.darwin;
     autoUpdater.on('update-available', info => { this.sendStatusToWindow('Update available', 'available', { ...info }); });
     autoUpdater.on('update-not-available', info => { this.sendStatusToWindow('Update not available.', 'not-available', { ...info }); });
     autoUpdater.on('error', err => { this.sendStatusToWindow('Error in auto-updater. ' + err, 'error'); });
     autoUpdater.on('download-progress', progressObj => { this.sendStatusToWindow('Downloading update...', 'progress', { ...progressObj }); });
     autoUpdater.on('update-downloaded', ({ version }) => {
       this.sendStatusToWindow('Update downloaded', 'downloaded', { version });
-      const buttons = (this.darwin || this.linux) ? ['OK'] : ['Restart', 'Later'];
+      const buttons = this.darwin ? ['OK'] : ['Restart', 'Later'];
       const dialogOpts = {
         type: 'info',
         buttons: buttons,
@@ -32,7 +32,7 @@ class UpdateManager {
         message: 'A new version (' + version + ') has been downloaded.\nPlease restart the application to apply the updates.'
       }
       dialog.showMessageBox(dialogOpts, response => { 
-        response === 0 && !this.darwin && !this.linux && autoUpdater.quitAndInstall(); 
+        response === 0 && !this.darwin && autoUpdater.quitAndInstall(); 
       });
     });
   }
