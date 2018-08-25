@@ -17,10 +17,17 @@ You can download latest version from [here](https://github.com/trembacz/diff-che
 | Platform | File |
 | -------- | ---- |
 | Windows | `diff-checker-web-setup-{VERSION}.exe` |
-| Mac | `Diff-Checker-{VERSION}.dmg` |
+| Mac\* | `Diff-Checker-{VERSION}.dmg` |
 | Linux | `diff-checker-{VERSION}-i386.AppImage` <br/> `diff-checker-{VERSION}-x86_64.AppImage` |
 
-#### Extra features:
+#### MacOS\* installation:
+**Application doesn't contain production sign so you will see notification that you want to run application from *unidentified developer*. There are two ways to run not signed apps:**
+  
+Open ***Apple menu > System Preferences, click Security & Privacy, then click General tab***
+1. Click the ***“Open Anyway”*** button. This button is available for about an hour after you try to open the app.
+2. Click the Lock icon in the bottom left of that window, make sure you have the option ***“Allow Applications Downloaded from: Anywhere”*** selected and click *“OK”*.
+
+### Features:
 - drag and drop files or text directly into textarea fields
 - remember window size and position
 - auto updates
