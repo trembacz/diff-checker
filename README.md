@@ -26,7 +26,9 @@ You can download latest version from [here](https://github.com/trembacz/diff-che
 Open ***Apple menu > System Preferences, click Security & Privacy, then click General tab***
 1. Click the ***“Open Anyway”*** button. This button is available for about an hour after you try to open the app.
 2. Click the Lock icon in the bottom left of that window, make sure you have the option ***“Allow Applications Downloaded from: Anywhere”*** selected and click *“OK”*.
-
+  
+---
+  
 ### Features:
 - drag and drop files or text directly into textarea fields
 - remember window size and position
