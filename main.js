@@ -16,8 +16,6 @@ const storeManager = new StoreManager({
 function createWindow() {
   // get data from store
   let { width, height, x, y, maximized } = storeManager.get('windowBounds');
-
-  // set main window
   mainWindow = new BrowserWindow({ x, y, width, height, maximized, icon: './assets/icons/png/64x64.png' });
   mainWindow.loadFile('index.html');
 

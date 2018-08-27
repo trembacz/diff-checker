@@ -30,14 +30,10 @@ ipcRenderer.on('update-info', function (event, message, type, data) {
       progressBar.value = percent;
       progressBarValue.textContent = percent + "%";
       toggleClass(progressBarDynamic, 'hidden', true);
-      // if (percent === 100) {
-      //   progressBarMessage.textContent = "Downloading package..";
-      //   toggleClass(progressContainer, 'hidden');
-      // }
       break;
     case 'downloaded':
       progressBarMessage.textContent = message + ' (' + data.version + ')';
-      setTimeout(() => { toggleClass(progressContainer, 'hidden'); }, 3000);
+      setTimeout(() => { toggleClass(progressContainer, 'hidden'); }, 5000);
       break;
     case 'error':
       progressBarMessage.textContent = message;

@@ -1,4 +1,4 @@
-var { dialog } = require('electron');
+const { dialog } = require('electron');
 const { autoUpdater } = require("electron-updater");
 
 class UpdateManager {
