@@ -23,84 +23,84 @@ class MenuManager {
 
   buildMenu() {
     // main menu
-    const mainMenuTemplate = [
-      {
-        label: 'File',
-        submenu: [
-          {
-            label: 'Quit',
-            accelerator: process.platform == 'darwin' ? 'Command+Q' : 'Ctrl+Q',
-            click(){
-              electron.app.quit();
-            }
+    const file = {
+      label: 'File',
+      submenu: [
+        {
+          label: 'Quit',
+          role: 'quit',
+          accelerator: 'CmdOrCtrl+Q'
+        }
+      ]
+    };
+
+    const edit = {
+      label: "Edit",
+      submenu: [
+        {
+          label: "Undo",
+          accelerator: "CmdOrCtrl+Z",
+          selector: "undo:"
+        },
+        {
+          label: "Redo",
+          accelerator: "Shift+CmdOrCtrl+Z",
+          selector: "redo:"
+        },
+        {
+          type: "separator"
+        },
+        {
+          label: "Cut",
+          accelerator: "CmdOrCtrl+X",
+          selector: "cut:"
+        },
+        {
+          label: "Copy",
+          accelerator: "CmdOrCtrl+C",
+          selector: "copy:"
+        },
+        {
+          label: "Paste",
+          accelerator: "CmdOrCtrl+V",
+          selector: "paste:"
+        },
+        {
+          label: "Select All",
+          accelerator: "CmdOrCtrl+A",
+          selector: "selectAll:"
+        }
+      ]
+    };
+
+    const about = {
+      role: 'help',
+      submenu: [
+        {
+          label: 'About',
+          click () { 
+            dialog.showMessageBox({ 
+              type: 'info',
+              buttons: ['OK'],
+              title: 'About',
+              message: "Diff Checker", // electron.app.getName()
+              detail: 'Version: ' + electron.app.getVersion() + '\n\nLibs: \n- jsdifflib (cemerick)'
+            });
           }
-        ]
-      },
-      {
-        label: "Edit",
-        submenu: [
-          {
-            label: "Undo",
-            accelerator: "CmdOrCtrl+Z",
-            selector: "undo:"
-          },
-          {
-            label: "Redo",
-            accelerator: "Shift+CmdOrCtrl+Z",
-            selector: "redo:"
-          },
-          {
-            type: "separator"
-          },
-          {
-            label: "Cut",
-            accelerator: "CmdOrCtrl+X",
-            selector: "cut:"
-          },
-          {
-            label: "Copy",
-            accelerator: "CmdOrCtrl+C",
-            selector: "copy:"
-          },
-          {
-            label: "Paste",
-            accelerator: "CmdOrCtrl+V",
-            selector: "paste:"
-          },
-          {
-            label: "Select All",
-            accelerator: "CmdOrCtrl+A",
-            selector: "selectAll:"
+        },
+        {
+          label: 'GitHub',
+          click () { 
+            electron.shell.openExternal('https://github.com/trembacz/diff-checker') 
           }
-        ]
-      },
-      {
-        role: 'help',
-        submenu: [
-          {
-            label: 'About',
-            click () { 
-              dialog.showMessageBox({ 
-                type: 'info',
-                buttons: ['OK'],
-                title: 'About',
-                message: "Diff Checker", // electron.app.getName()
-                detail: 'Version: ' + electron.app.getVersion() + '\n\nLibs: \n- jsdifflib (cemerick)'
-              });
-            }
-          },
-          {
-            label: 'GitHub',
-            click () { 
-              electron.shell.openExternal('https://github.com/trembacz/diff-checker') 
-            }
-          }
-        ]
-      }
-    ];
+        }
+      ]
+    };
+
+    const mainMenuTemplate = process.platform == 'darwin' ? [ file, edit, about ] : [ file, about ];
 
     // add developer tools option if on dev env
-    if(this.env !== 'production'){
+    if (this.env !== 'production') {
       mainMenuTemplate.push({
         label: 'Tools',
         submenu:[
@@ -109,7 +109,7 @@ class MenuManager {
           },
           {
             label: 'Toggle DevTools',
-            accelerator: process.platform == 'darwin' ? 'Command+I' : 'Ctrl+I',
+            accelerator: 'CmdOrCtrl+I',
             click(e, focusedWindow){
               focusedWindow.toggleDevTools();
             }
