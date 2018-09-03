@@ -32,7 +32,6 @@ class StoreManager {
 
   setEvents() {
     const self = this;
-    this.data.maximized && this.mainWindow.maximize();
     ['resize', 'move', 'close'].forEach(e => { 
       self.mainWindow.on(e, function() { 
         const maximized = self.mainWindow.isMaximized();

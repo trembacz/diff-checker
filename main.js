@@ -19,6 +19,9 @@ function createWindow() {
   mainWindow = new BrowserWindow({ x, y, width, height, maximized, icon: './assets/icons/png/64x64.png' });
   mainWindow.loadFile('index.html');
 
+  // check if we need to maximize main window
+  maximized && mainWindow.maximize();
+
   // set main window
   storeManager.setWindow(mainWindow);
   menuManager.setWindow(mainWindow);
