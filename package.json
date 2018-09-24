@@ -1,7 +1,7 @@
 {
   "name": "diff-checker",
   "productName": "Diff-Checker",
-  "version": "0.9.3",
+  "version": "0.9.4",
   "description": "Desktop application to compare text differences between two files",
   "main": "main.js",
   "repository": "https://github.com/trembacz/diff-checker",
