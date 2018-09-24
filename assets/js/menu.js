@@ -84,7 +84,7 @@ class MenuManager {
               buttons: ['OK'],
               title: 'About',
               message: "Diff Checker", // electron.app.getName()
-              detail: 'Version: ' + electron.app.getVersion() + '\n\nLibs: \n- jsdifflib (cemerick)'
+              detail: 'Version: ' + electron.app.getVersion() + '\n\nLibs: \n- ace (ajaxorg)\n- jsdifflib (cemerick)'
             });
           }
         },

@@ -4,13 +4,14 @@ const addWarningMessage = (el, message) => el.textContent = message;
 const clearDiffContent = el => el.innerHTML = '';
 const toggleClass = (el, className, flag) => flag ? el.classList.remove(className) : el.classList.add(className);
 
-const readFile = item => {
+const readFile = (item, editor) => {
   if (item.dataTransfer.files[0]) {
     const path = item.dataTransfer.files[0].path;
-    item.target.value = fs.readFileSync(path).toString();
-  } else {
-    item.target.value = item.dataTransfer.getData("Text");
-  }  
+    if (item.target.classList && item.target.classList.contains('ace_content')) {
+      const string = fs.readFileSync(path).toString();
+      ace.edit(editor.id).setValue(string);
+    }; 
+  }
 }
 
 const differenceCheck = () => {

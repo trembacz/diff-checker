@@ -32,12 +32,12 @@
                   </div>
                   <b>Format:</b> <br/>
                   <div class="custom-control custom-radio custom-control-inline">
-                    <input class="custom-control-input displayType" checked type="radio" name="inlineRadioOptions" id="iR1" value="0">
-                    <label class="custom-control-label" for="iR1">Side by side</label>
+                    <input class="custom-control-input displayType" checked type="radio" name="inlineRadioOptions" id="iR2" value="1">
+                    <label class="custom-control-label" for="iR2">Inline</label>
                   </div>
                   <div class="custom-control custom-radio custom-control-inline">
-                    <input class="custom-control-input displayType" type="radio" name="inlineRadioOptions" id="iR2" value="1">
-                    <label class="custom-control-label" for="iR2">Inline</label>
+                    <input class="custom-control-input displayType" type="radio" name="inlineRadioOptions" id="iR1" value="0">
+                    <label class="custom-control-label" for="iR1">Side by side</label>
                   </div>
                 </div>
               </details>
@@ -55,7 +55,7 @@
                 <div class="left-container">
                     <div class="form-group">
                         <label class="form-text textarea-label" for="lt">Original text</label>
-                        <textarea class="form-control" id="lt" rows="3"></textarea>
+                        <div id="lt" class="draggable"></div>
                         <button class="reset-area">Reset</button>
                     </div>
                 </div>
@@ -64,7 +64,7 @@
                 <div class="right-container">
                     <div class="form-group">
                         <label class="form-text textarea-label" for="rt">Changed text</label>
-                        <textarea class="form-control" id="rt" rows="3"></textarea>
+                        <div id="rt" class="draggable"></div>
                         <button class="reset-area">Reset</button>
                     </div>
                   </div>              

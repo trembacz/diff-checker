@@ -27,7 +27,9 @@
     },
     "linux": {
       "category": "Productivity",
-      "target": [ "AppImage" ]
+      "target": [
+        "AppImage"
+      ]
     },
     "nsisWeb": {
       "allowToChangeInstallationDirectory": true,
@@ -46,10 +48,10 @@
     ]
   },
   "dependencies": {
-    "electron-updater": "~3.1.1"
+    "electron-updater": "~3.1.2"
   },
   "devDependencies": {
-    "electron": "^2.0.8",
-    "electron-builder": "20.28.2"
+    "electron": "^3.0.0",
+    "electron-builder": "20.28.4"
   }
 }

@@ -98,4 +98,4 @@ This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md
 
 ## Acknowledgments
 
-Modified version of [jsdifflib](https://github.com/cemerick/jsdifflib) has been used.
+- [Ace](https://github.com/ajaxorg/ace) and modified version of [jsdifflib](https://github.com/cemerick/jsdifflib) has been used.

@@ -1,7 +1,14 @@
 const { ipcRenderer } = require('electron');
-const diff = require('./assets/js/diff.js');
+const ace = require('./assets/js/lib/ace.js');
+const diff = require('./assets/js/lib/diff.js');
 const { addWarningMessage, clearDiffContent, toggleClass, readFile, differenceCheck } = require('./assets/js/utils.js');
-const { sameMsg, emptyMsg, baseText, newText } = require('./assets/js/constants.js');
+const { sameMsg, emptyMsg, baseText, newText, editorConfig } = require('./assets/js/constants.js');
+
+const lt = ace.edit("lt");
+const rt = ace.edit("rt");
+
+lt.setOptions(editorConfig);
+rt.setOptions(editorConfig);
 
 // check events from updater
 ipcRenderer.on('update-info', function (event, message, type, data) {
@@ -41,13 +48,13 @@ ipcRenderer.on('update-info', function (event, message, type, data) {
 });
 
 // set drag content
-const dragItems = document.querySelectorAll('textarea');
+const dragItems = document.querySelectorAll('.draggable');
 document.ondragover = document.ondrop = e => { e.preventDefault(); } 
 dragItems.forEach(element => { 
   element.ondrop = e => {
     e.preventDefault();
     toggleClass(e.target, 'drag-hover', true);
-    readFile(e); 
+    readFile(e, element);
   }
 
   element.ondragenter = e => {
@@ -79,17 +86,19 @@ displayTypeBtn.forEach(element => {
 const resetBtn = document.querySelectorAll('.reset-area');
 resetBtn.forEach(element => { 
   element.addEventListener('click', function(e) {
-    e.target.previousElementSibling.value = '';
+    const elem = e.target.previousElementSibling.id;
+    ace.edit(elem).setValue("");
   });
 });
 
 
 // diff button action
 const diffBtn = document.getElementById('diffBtn');
-diffBtn.addEventListener('click', function(e) {
-  // get content from both textareas
-  const leftContent = document.querySelector('.left-container textarea').value;
-  const rightContent = document.querySelector('.right-container textarea').value;
+diffBtn.addEventListener('click', function() {
+  // get content from both containers
+  const leftContent = lt.getValue();
+  const rightContent = rt.getValue();
+  
   const warningBlock = document.querySelector('.warning-container');
   const diffBlock = document.querySelector('.diff-container');
 

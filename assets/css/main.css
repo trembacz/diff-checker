@@ -16,6 +16,12 @@ html,body {
   margin: 10px 0;
 }
 
+#lt, #rt {
+  display: block;
+  min-height: 340px;
+  width: 100%;
+}
+
 .textarea-label {
   background: #ecebeb;
   border: 1px solid #ccc;
@@ -27,15 +33,6 @@ html,body {
   padding: 8px 10px;
   text-align: center;
   text-transform: uppercase;
-}
-
-.form-group textarea {
-  border-radius: 0;
-  border-top: none;
-  font-family: Consolas,verdana,arial,helvetica,sans-serif;
-  font-size: .85em;
-  overflow-x: hidden;
-  word-break: break-all;
 }
 
 .warning-container {
@@ -87,13 +84,7 @@ input:focus,button:focus,textarea:focus,summary:focus,.custom-control-input:focu
   outline: none;
 }
 
-textarea {
-  min-height: 340px;
-  resize: vertical;
-  width: 100%;
-}
-
-textarea,button:focus {
+button:focus {
   outline: none;
 }
 
@@ -106,10 +97,12 @@ button.reset-area {
   cursor: pointer;
   font-size: 12px;
   height: 20px;
+  left: 40px;
   min-width: 60px;
   opacity: .6;
   padding: 0;
   position: absolute;
+  z-index: 10;
 }
 
 button.reset-area:hover {
@@ -125,7 +118,7 @@ button.reset-area:hover {
   margin-bottom: 1em;
 }
 
-.drag-hover {
+.ace_content.drag-hover {
   background: url("../images/drag.png") no-repeat no-repeat 50% 50%;
   background-color: #f8f8f8;
   background-size: 150px;
