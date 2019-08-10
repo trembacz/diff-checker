@@ -2,7 +2,7 @@
 
 Desktop application to compare text differences between two files.
 
-![](https://i.imgur.com/QH2cHIH.png)
+![](https://i.imgur.com/ZALS4wq.png)
 
 ## Informations
 
