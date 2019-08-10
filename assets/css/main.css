@@ -1,3 +1,9 @@
+*,
+*:after,
+*::before {
+  box-sizing: border-box;
+}
+
 html,body {
   background: #eee;
 }
@@ -10,6 +16,20 @@ html,body {
 	background-color: transparent;
   margin: 0;
   padding: 10px 0 0;
+}
+
+.container-fluid {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+main {
+  flex: 1;
+}
+
+hr.mb-2 {
+  width: 100%;
 }
 
 .options {
@@ -39,19 +59,6 @@ html,body {
   margin: 0 auto 20px;
   padding: .5em 0;
   text-align: center;
-}
-
-footer {
-  margin: 0 0 20px;
-  text-align: center;
-}
-
-footer span {
-  display: block;
-}
-
-footer span b {
-  margin-right: 5px;
 }
 
 img {
@@ -282,4 +289,69 @@ table.diff th.insert {
 
 table.diff th.equal {
   background: #fff;
+}
+
+/* Footer */
+footer {
+  display: flex;
+  padding-bottom: .65rem;
+  flex-direction: row;
+  text-transform: uppercase;
+  text-align: center;
+  justify-content: space-between;
+}
+
+footer .icon {
+  width: 24px;
+  height: 24px;
+}
+
+footer > div {
+  align-self: center;
+}
+
+.git-button,
+.about-link {
+  width: 15%;
+}
+
+.about-link {
+  text-align: left;
+}
+
+.git-button {
+  text-align: right;
+}
+
+.git-button:before,
+.about-link:before {
+  margin-right: 5px;
+  font-size: 22px;
+}
+
+.git-button span,
+.about-link span {
+  color: #2c3e50;
+  cursor: pointer;
+  font-size: 16px;
+  text-transform: uppercase;
+  text-decoration: none;
+  vertical-align: middle;
+}
+
+.git-button span:hover,
+.about-link span:hover {
+  color: #000;
+}
+
+.author-wrapper {
+  width: 70%;
+  text-align: center;
+  font-size: 22px;
+}
+
+.author-wrapper .icon {
+  cursor: help;
+  height: 28px;
+  width: 32px;
 }

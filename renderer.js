@@ -1,4 +1,4 @@
-const { ipcRenderer } = require('electron');
+const { ipcRenderer, shell, remote } = require('electron');
 const ace = require('./assets/js/lib/ace.js');
 const diff = require('./assets/js/lib/diff.js');
 const { addWarningMessage, clearDiffContent, toggleClass, readFile, differenceCheck } = require('./assets/js/utils.js');
@@ -151,4 +151,22 @@ diffBtn.addEventListener('click', function() {
     addWarningMessage(warningBlock, emptyMsg);
     toggleClass(warningBlock, 'hidden', true);
   }
+});
+
+// diablog box with about info
+const aboutInfo = document.querySelector('.about-info');
+aboutInfo.addEventListener('click', function() {
+  remote.dialog.showMessageBox({ 
+    type: 'info',
+    buttons: ['OK'],
+    title: 'About',
+    message: "Diff Checker", // electron.app.getName()
+    detail: 'Version: ' + remote.app.getVersion() + '\n\nLibs: \n- ace (ajaxorg)\n- jsdifflib (cemerick)'
+  });
+});
+
+// open github link in default browser
+const gitLink = document.querySelector('.github-info');
+gitLink.addEventListener('click', function(e) {
+  shell.openExternal('https://github.com/trembacz/diff-checker') 
 });

@@ -1,17 +1,17 @@
 {
   "name": "diff-checker",
   "productName": "Diff-Checker",
-  "version": "0.9.4",
+  "version": "0.9.5",
   "description": "Desktop application to compare text differences between two files",
   "main": "main.js",
   "repository": "https://github.com/trembacz/diff-checker",
   "scripts": {
     "start": "NODE_ENV=development electron .",
-    "package-all": "build --wml --ia32 --x64",
-    "package-win": "build --win --ia32 --x64",
-    "package-mac": "build --mac",
-    "package-linux": "build --linux",
-    "publish": "build -wml --ia32 --x64 -p always"
+    "package-all": "electron-builder --wml --ia32 --x64",
+    "package-win": "electron-builder --win --ia32 --x64",
+    "package-mac": "electron-builder --mac",
+    "package-linux": "electron-builder --linux",
+    "publish": "electron-builder -wml --ia32 --x64 -p always"
   },
   "author": "Tomasz Rembacz <mm@mm85.org>",
   "license": "MIT",
@@ -48,10 +48,10 @@
     ]
   },
   "dependencies": {
-    "electron-updater": "~3.1.2"
+    "electron-updater": "~4.1.2"
   },
   "devDependencies": {
-    "electron": "^3.0.0",
-    "electron-builder": "20.28.4"
+    "electron": "^6.0.1",
+    "electron-builder": "21.2.0"
   }
 }

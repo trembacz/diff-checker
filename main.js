@@ -5,6 +5,7 @@ const MenuManager = require('./assets/js/menu.js');
 const UpdateManager = require('./assets/js/update.js');
 
 let mainWindow;
+const appIcon = './assets/icons/png/64x64.png';
 
 const menuManager = new MenuManager();
 const updateManager = new UpdateManager();
@@ -16,7 +17,7 @@ const storeManager = new StoreManager({
 function createWindow() {
   // get data from store
   let { width, height, x, y, maximized } = storeManager.get('windowBounds');
-  mainWindow = new BrowserWindow({ x, y, width, height, maximized, icon: './assets/icons/png/64x64.png' });
+  mainWindow = new BrowserWindow({ x, y, width, height, maximized, icon: appIcon, minWidth: 700, minHeight: 740, webPreferences: { nodeIntegration: true }});
   mainWindow.loadFile('index.html');
 
   // check if we need to maximize main window

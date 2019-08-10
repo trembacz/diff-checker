@@ -1,5 +1,4 @@
-const { Menu, dialog } = require('electron')
-const electron = require('electron')
+const { Menu } = require('electron')
 
 class MenuManager {
   constructor() {
@@ -73,31 +72,7 @@ class MenuManager {
       ]
     };
 
-    const about = {
-      role: 'help',
-      submenu: [
-        {
-          label: 'About',
-          click () { 
-            dialog.showMessageBox({ 
-              type: 'info',
-              buttons: ['OK'],
-              title: 'About',
-              message: "Diff Checker", // electron.app.getName()
-              detail: 'Version: ' + electron.app.getVersion() + '\n\nLibs: \n- ace (ajaxorg)\n- jsdifflib (cemerick)'
-            });
-          }
-        },
-        {
-          label: 'GitHub',
-          click () { 
-            electron.shell.openExternal('https://github.com/trembacz/diff-checker') 
-          }
-        }
-      ]
-    };
-
-    const mainMenuTemplate = process.platform == 'darwin' ? [ file, edit, about ] : [ file, about ];
+    const mainMenuTemplate = process.platform == 'darwin' ? [ file, edit ] : [ file ];
 
     // add developer tools option if on dev env
     if (this.env !== 'production') {
