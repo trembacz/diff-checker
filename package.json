@@ -7,7 +7,7 @@
   "repository": "https://github.com/trembacz/diff-checker",
   "scripts": {
     "start": "NODE_ENV=development electron .",
-    "package-all": "electron-builder --wml --ia32 --x64",
+    "package-all": "electron-builder -wml --ia32 --x64",
     "package-win": "electron-builder --win --ia32 --x64",
     "package-mac": "electron-builder --mac",
     "package-linux": "electron-builder --linux",
