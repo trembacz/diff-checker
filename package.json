@@ -11,7 +11,7 @@
     "package-win": "electron-builder --win --ia32 --x64",
     "package-mac": "electron-builder --mac",
     "package-linux": "electron-builder --linux",
-    "publish": "electron-builder -wml --ia32 --x64 -p always"
+    "publish-app": "electron-builder -wml --ia32 --x64 -p always"
   },
   "author": "Tomasz Rembacz <mm@mm85.org>",
   "license": "MIT",
