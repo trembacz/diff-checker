@@ -1,6 +1,6 @@
 # Diff Checker
 
-Desktop application to compare text differences between two files.
+A desktop application that allows you to compare text differences between two files.
 
 ![](https://i.imgur.com/ZALS4wq.png)
 
