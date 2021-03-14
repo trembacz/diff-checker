@@ -1,10 +1,11 @@
 *,
-*:after,
+*::after,
 *::before {
   box-sizing: border-box;
 }
 
-html,body {
+html,
+body {
   background: #eee;
 }
 
@@ -13,7 +14,7 @@ html,body {
 }
 
 .jumbotron {
-	background-color: transparent;
+  background-color: transparent;
   margin: 0;
   padding: 10px 0 0;
 }
@@ -36,7 +37,8 @@ hr.mb-2 {
   margin: 10px 0;
 }
 
-#lt, #rt {
+#lt,
+#rt {
   display: block;
   min-height: 340px;
   width: 100%;
@@ -44,12 +46,11 @@ hr.mb-2 {
 
 .textarea-label {
   background: #ecebeb;
-  border: 1px solid #ccc;
+  border-bottom: 1px solid #ccc;
   color: #585858;
-  font-size: 10px;
+  font-size: 12px;
   font-weight: 700;
-  letter-spacing: .05em;
-  margin-bottom: 0;
+  margin: 0;
   padding: 8px 10px;
   text-align: center;
   text-transform: uppercase;
@@ -57,7 +58,7 @@ hr.mb-2 {
 
 .warning-container {
   margin: 0 auto 20px;
-  padding: .5em 0;
+  padding: 0.5em 0;
   text-align: center;
 }
 
@@ -66,7 +67,8 @@ img {
   margin: 0 auto;
 }
 
-.items-container,.button-container {
+.items-container,
+.button-container {
   display: flex;
 }
 
@@ -75,19 +77,18 @@ img {
   border: 1px solid #1d8449;
   border-radius: 5px;
   color: #fff;
-  font-size: 1.2em;
+  font-size: 20px;
   margin: 0 auto;
   min-width: 20%;
   padding: 10px;
 }
 
-.button-container button:hover {
-  background: #16683a;
-  cursor: pointer;
-}
-
-input:focus,button:focus,textarea:focus,summary:focus,.custom-control-input:focus~.custom-control-label::before {
-  box-shadow: none!important;
+input:focus,
+button:focus,
+textarea:focus,
+summary:focus,
+.custom-control-input:focus ~ .custom-control-label::before {
+  box-shadow: none !important;
   outline: none;
 }
 
@@ -95,21 +96,25 @@ button:focus {
   outline: none;
 }
 
+.button-container button:hover {
+  background: #16683a;
+  cursor: pointer;
+}
+
 button.reset-area {
   background: #f8f8f8;
-  border: 1px solid #ccc;
+  border: none;
+  border-top: 1px solid #ccc;
   border-radius: 0;
-  bottom: 0;
   color: #000;
   cursor: pointer;
   font-size: 12px;
-  height: 20px;
-  left: 40px;
+  font-weight: bold;
+  min-height: 20px;
   min-width: 60px;
-  opacity: .6;
-  padding: 0;
-  position: absolute;
-  z-index: 10;
+  opacity: 0.6;
+  padding: 4px 0;
+  text-transform: uppercase;
 }
 
 button.reset-area:hover {
@@ -117,6 +122,9 @@ button.reset-area:hover {
 }
 
 .areas-container .form-group {
+  border: 1px solid #ccc;
+  display: flex;
+  flex-direction: column;
   margin: 1em 0 0;
   position: relative;
 }
@@ -133,8 +141,8 @@ button.reset-area:hover {
 
 .progress-container {
   background: #fff;
-  border-left: 1px solid rgba(0,0,0,.1);
-  border-top: 1px solid rgba(0,0,0,.1);
+  border-left: 1px solid rgba(0, 0, 0, 0.1);
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
   bottom: 0;
   padding: 10px 10px 5px;
   position: fixed;
@@ -156,15 +164,15 @@ progress::-webkit-progress-bar {
 }
 
 progress::-webkit-progress-value {
-  background: -webkit-linear-gradient(top,  #cdeb8e 0%,#219a56 100%);
-	background: linear-gradient(to bottom,  #cdeb8e 0%,#219a56 100%);
+  background: -webkit-linear-gradient(top, #cdeb8e 0%, #219a56 100%);
+  background: linear-gradient(to bottom, #cdeb8e 0%, #219a56 100%);
   border-radius: 5px;
 }
 
 .progress-value {
   color: #555;
   float: right;
-  font-size: .8em;
+  font-size: 0.8em;
   height: 18px;
   line-height: 18px;
   margin-left: 0;
@@ -173,12 +181,29 @@ progress::-webkit-progress-value {
 .progress-message {
   color: #555;
   display: block;
-  font-size: .8em;
+  font-size: 0.8em;
   padding: 0 0 10px;
   text-align: center;
 }
 
-table.diff.inlinediff td.delete,table.diff.inlinediff td.equal,table.diff.inlinediff td.insert {
+table.diff td.delete {
+  background: #ffeef0;
+  width: 50%;
+}
+
+table.diff td.insert {
+  background: #e6ffed;
+  width: 50%;
+}
+
+table.diff td.equal {
+  background: #fff;
+  width: 50%;
+}
+
+table.diff.inlinediff td.delete,
+table.diff.inlinediff td.equal,
+table.diff.inlinediff td.insert {
   width: 100%;
 }
 
@@ -193,17 +218,17 @@ table.diff {
 }
 
 table.diff tbody {
-  font-family: Consolas,Courier,monospace;
+  font-family: Consolas, Courier, monospace;
 }
 
 table.diff tbody th {
   background: #ddd;
-  border: 0 solid #BBC;
+  border: 0 solid #bbc;
   color: #886;
-  font-family: Consolas,verdana,arial,helvetica,sans-serif;
+  font-family: Consolas, verdana, arial, helvetica, sans-serif;
   font-size: 11px;
   font-weight: 400;
-  padding: .3em .6em;
+  padding: 0.3em 0.6em;
   text-align: right;
   vertical-align: top;
   -webkit-user-select: none;
@@ -213,11 +238,14 @@ table.diff tbody th {
 table.diff thead {
   background: #efefef;
   border-bottom: 1px solid #bbc;
-  font-family: Verdana;
+  font-family: Verdana, Arial, Tahoma, sans-serif;
+}
+
+table.diff thead th {
+  background-color: gray;
 }
 
 table.diff thead th.texttitle {
-  background: gray;
   color: #fff;
   font-size: 23px;
   font-weight: lighter;
@@ -227,8 +255,8 @@ table.diff thead th.texttitle {
 }
 
 table.diff tbody td {
-  font-size: .8em;
-  padding: .15em .4em 0;
+  font-size: 0.8em;
+  padding: 0.15em 0.4em 0;
   vertical-align: top;
   word-break: break-all;
 }
@@ -243,25 +271,10 @@ table.diff td.replace {
   width: 50%;
 }
 
-table.diff td.delete {
-  background: #ffeef0;
-  width: 50%;
-}
-
 table.diff td.skip {
   background: #efefef;
   border: 1px solid #aaa;
   border-right: 1px solid #bbc;
-  width: 50%;
-}
-
-table.diff td.insert {
-  background: #e6ffed;
-  width: 50%;
-}
-
-table.diff td.equal {
-  background: #fff;
   width: 50%;
 }
 
@@ -294,7 +307,7 @@ table.diff th.equal {
 /* Footer */
 footer {
   display: flex;
-  padding-bottom: .65rem;
+  padding-bottom: 0.65rem;
   flex-direction: row;
   text-transform: uppercase;
   text-align: center;
@@ -323,8 +336,8 @@ footer > div {
   text-align: right;
 }
 
-.git-button:before,
-.about-link:before {
+.git-button::before,
+.about-link::before {
   margin-right: 5px;
   font-size: 22px;
 }
@@ -354,4 +367,38 @@ footer > div {
   cursor: help;
   height: 28px;
   width: 32px;
+}
+
+.dark-mode__wrapper {
+  align-items: center;
+  background-color: #3a3b3d;
+  border-radius: 30px;
+  cursor: pointer;
+  display: flex;
+  height: 25px;
+  justify-content: space-between;
+  margin: 0 auto 10px;
+  padding: 0 6px;
+  position: relative;
+  width: 50px;
+}
+
+.dark-mode__wrapper svg {
+  height: 16px;
+  width: 16px;
+}
+
+.dark-mode__toggle {
+  background-color: #fff;
+  border-radius: 50%;
+  height: 20px;
+  left: 3px;
+  position: absolute;
+  transition: all 0.5s ease;
+  width: 20px;
+}
+
+.dark-mode__toggle-on {
+  left: 100%;
+  transform: translateX(calc(-100% - 3px));
 }
