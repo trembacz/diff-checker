@@ -71,7 +71,7 @@
 
   button.reset-area {
     background: #242526;
-    border: none;
+    border-top: 1px solid #242526;
     color: #fff;
   }
 
@@ -96,7 +96,7 @@
 
   .textarea-label {
     background: #242526;
-    border: none;
+    border-bottom: 1px solid #242526;
     color: #c9d1c9;
   }
 
@@ -118,7 +118,7 @@
 
   table.diff thead {
     background: #242526;
-    border-bottom: none;
+    border-bottom: 1px solid #242526;
   }
 
   table.diff thead th.texttitle {

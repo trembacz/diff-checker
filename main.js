@@ -74,10 +74,13 @@ function createWindow() {
     });
 
     mainWindow.webContents.on('did-finish-load', () => {
-        // set dark mode on load
-        if (storeManager.get('darkMode') || nativeTheme.shouldUseDarkColors) {
+        // set app theme on load
+        const appDarkMode = storeManager.get('darkMode');
+        if (appDarkMode) {
             mainWindow.webContents.send('set-dark-mode');
             nativeTheme.themeSource = 'dark';
+        } else {
+            nativeTheme.themeSource = 'light';
         }
     });
 

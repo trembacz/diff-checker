@@ -68,12 +68,11 @@ ipcRenderer.on('update-info', function (event, message, type, data) {
     }
 });
 
-
 // set dark mode
 ipcRenderer.on('set-dark-mode', () => toggleDarkMode());
 
 // set drag content
-const dragItems     = document.querySelectorAll('.draggable');
+const dragItems = document.querySelectorAll('.draggable');
 document.ondragover = document.ondrop = e => { e.preventDefault(); }
 dragItems.forEach(element => {
     element.ondrop = e => {
@@ -103,7 +102,6 @@ differenceBtn.addEventListener('click', () => {
     document.getElementById('diffBtn').click();
 });
 
-
 // display type
 const displayTypeBtn = document.querySelectorAll('.displayType');
 displayTypeBtn.forEach(element => {
@@ -120,7 +118,6 @@ resetBtn.forEach(element => {
         ace.edit(elem).setValue("");
     });
 });
-
 
 // diff button action
 const diffBtn = document.getElementById('diffBtn');
@@ -195,7 +192,7 @@ aboutInfo.addEventListener('click', function() {
     });
 });
 
-// open github link in default browser
+// open Github link in default browser
 const gitLink = document.querySelector('.github-info');
 gitLink.addEventListener('click', () => {
     shell.openExternal('https://github.com/trembacz/diff-checker')
