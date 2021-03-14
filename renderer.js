@@ -22,6 +22,11 @@ const rt = ace.edit("rt");
 lt.setOptions(editorConfig);
 rt.setOptions(editorConfig);
 
+const toggleDarkMode = () => {
+    const toggleElem = document.querySelector('.dark-mode__toggle');
+    toggleElem.classList.toggle('dark-mode__toggle-on');
+};
+
 // check events from updater
 ipcRenderer.on('update-info', function (event, message, type, data) {
     const progressBar        = document.getElementById('update-progress');
@@ -63,13 +68,9 @@ ipcRenderer.on('update-info', function (event, message, type, data) {
     }
 });
 
+
 // set dark mode
-ipcRenderer.on('set-dark-mode', function (event, isEnabled) {
-    if (isEnabled) {
-        const toggleElem = document.querySelector('.dark-mode__toggle');
-        toggleElem.classList.toggle('dark-mode__toggle-on');
-    }
-});
+ipcRenderer.on('set-dark-mode', () => toggleDarkMode());
 
 // set drag content
 const dragItems     = document.querySelectorAll('.draggable');
@@ -93,8 +94,7 @@ dragItems.forEach(element => {
 // dark mode
 document.querySelector('.dark-mode__wrapper').addEventListener('click', () => {
     ipcRenderer.send('toggle-dark-mode');
-    const toggleElem = document.querySelector('.dark-mode__toggle');
-    toggleElem.classList.toggle('dark-mode__toggle-on');
+    toggleDarkMode();
 });
 
 // difference view

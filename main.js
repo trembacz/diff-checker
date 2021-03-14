@@ -65,19 +65,18 @@ function createWindow() {
     ipcMain.on('toggle-dark-mode', function () {
         if (nativeTheme.shouldUseDarkColors) {
             nativeTheme.themeSource = 'light'
-            storeManager.set('darkMode', 'off');
+            storeManager.set('darkMode', false);
         } else {
             nativeTheme.themeSource = 'dark'
-            storeManager.set('darkMode', 'on');
+            storeManager.set('darkMode', true);
         }
         return nativeTheme.shouldUseDarkColors
     });
 
     mainWindow.webContents.on('did-finish-load', () => {
         // set dark mode on load
-        const darkModeEnabled = storeManager.get('darkMode') === 'on';
-        if (darkModeEnabled) {
-            mainWindow.webContents.send('set-dark-mode', darkModeEnabled);
+        if (storeManager.get('darkMode')) {
+            mainWindow.webContents.send('set-dark-mode');
             nativeTheme.themeSource = 'dark';
         }
     });
