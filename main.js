@@ -75,7 +75,7 @@ function createWindow() {
 
     mainWindow.webContents.on('did-finish-load', () => {
         // set dark mode on load
-        if (storeManager.get('darkMode')) {
+        if (storeManager.get('darkMode') || nativeTheme.shouldUseDarkColors) {
             mainWindow.webContents.send('set-dark-mode');
             nativeTheme.themeSource = 'dark';
         }
