@@ -1,48 +1,92 @@
-const { app, BrowserWindow } = require('electron');
+const { app, BrowserWindow, ipcMain, nativeTheme } = require('electron');
 
-const StoreManager = require('./assets/js/store.js');
-const MenuManager = require('./assets/js/menu.js');
+const StoreManager  = require('./assets/js/store.js');
+const MenuManager   = require('./assets/js/menu.js');
 const UpdateManager = require('./assets/js/update.js');
 
-let mainWindow;
 const appIcon = './assets/icons/png/64x64.png';
 
-const menuManager = new MenuManager();
+const menuManager   = new MenuManager();
 const updateManager = new UpdateManager();
-const storeManager = new StoreManager({
-  configName: 'preferences',
-  defaults: { windowBounds: { width: 1000, height: 800, x: undefined, y: undefined, maximized: false } }
+const storeManager  = new StoreManager({
+    configName: 'preferences',
+    defaults:   {
+        windowBounds: {
+            width:     1000,
+            height:    800,
+            x:         undefined,
+            y:         undefined,
+            maximized: false
+        },
+        darkMode: false,
+    },
 });
 
+let mainWindow;
+
 function createWindow() {
-  // get data from store
-  let { width, height, x, y, maximized } = storeManager.get('windowBounds');
-  mainWindow = new BrowserWindow({ x, y, width, height, maximized, icon: appIcon, minWidth: 700, minHeight: 740, webPreferences: { enableRemoteModule: true, nodeIntegration: true }});
-  mainWindow.loadFile('index.html');
+    // get data from store
+    let { width, height, x, y, maximized } = storeManager.get('windowBounds');
+    mainWindow = new BrowserWindow({
+        x, y,
+        width, height,
+        maximized,
+        icon:           appIcon,
+        minWidth:       700,
+        minHeight:      740,
+        webPreferences: {
+            enableRemoteModule: true,
+            contextIsolation:   false,
+            nodeIntegration:    true
+        }});
 
-  // check if we need to maximize main window
-  maximized && mainWindow.maximize();
+    mainWindow.loadFile('index.html');
 
-  // set main window
-  storeManager.setWindow(mainWindow);
-  menuManager.setWindow(mainWindow);
-  updateManager.setWindow(mainWindow);
-  
-  // set window bounds events
-  storeManager.setEvents();
+    // check if we need to maximize main window
+    maximized && mainWindow.maximize();
 
-  // build menu
-  menuManager.buildMenu();
+    // set main window
+    storeManager.setWindow(mainWindow);
+    menuManager.setWindow(mainWindow);
+    updateManager.setWindow(mainWindow);
 
-  // check for update
-  updateManager.checkForUpdate();
+    // set window bounds events
+    storeManager.setEvents();
 
-  // show dev tools on start
-  // mainWindow.webContents.openDevTools();
+    // build menu
+    menuManager.buildMenu();
 
-  mainWindow.on('closed', function() { mainWindow = null });
+    // check for update
+    updateManager.checkForUpdate();
+
+    // show dev tools on start
+    // mainWindow.webContents.openDevTools();
+
+    ipcMain.on('toggle-dark-mode', function () {
+        if (nativeTheme.shouldUseDarkColors) {
+            nativeTheme.themeSource = 'light'
+            storeManager.set('darkMode', false);
+        } else {
+            nativeTheme.themeSource = 'dark'
+            storeManager.set('darkMode', true);
+        }
+        return nativeTheme.shouldUseDarkColors
+    });
+
+    mainWindow.webContents.on('did-finish-load', () => {
+        // set app theme on load
+        const appDarkMode = storeManager.get('darkMode');
+        if (appDarkMode) {
+            mainWindow.webContents.send('set-dark-mode');
+            nativeTheme.themeSource = 'dark';
+        } else {
+            nativeTheme.themeSource = 'light';
+        }
+    });
+
+    mainWindow.on('closed', function() { mainWindow = null });
 }
 
-app.on('ready', createWindow);
+app.whenReady().then(createWindow);
 app.on('window-all-closed', function() { if (process.platform !== 'darwin') { app.quit(); } });
 app.on('activate', function() { if (mainWindow === null) { createWindow(); } });

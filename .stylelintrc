@@ -1,0 +1,6 @@
+{
+    "extends": "stylelint-config-standard",
+    "plugins": ["stylelint-order"],
+    "order/order": ["custom-properties", "declarations"],
+    "order/properties-alphabetical-order": true
+}

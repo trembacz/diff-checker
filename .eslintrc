@@ -1,0 +1,22 @@
+{
+  "extends": "eslint:recommended",
+  "ignorePatterns": ["assets/js/lib/*.js"],
+  "parserOptions": {
+    "ecmaVersion": 9
+  },
+  "env": {
+    "node": true,
+    "browser": true,
+    "es6": true
+  },
+  "globals": {
+    "ace": true
+  },
+  "rules": {
+    "arrow-parens":    ["error", "as-needed"],
+    "indent":          ["warn", 4],
+    "key-spacing":     ["error", {"align": "value"}],
+    "no-console":      ["error", {"allow": ["warn", "error"]}],
+    "no-multi-spaces": ["error", { "exceptions": { "VariableDeclarator": true, "ImportDeclaration": true, "Property": true }}]
+  }
+}
